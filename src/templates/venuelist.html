@@ -1,0 +1,45 @@
+<ion-view view-title="">
+    
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear nav-menu menu-btn" menu-toggle="left">
+        </button>
+      </ion-nav-buttons>
+    <ion-nav-title>
+        <div class="center-el">
+            <span class="home-logo yellow" ></span>
+        </div>
+    </ion-nav-title>
+    
+    <ion-nav-buttons side="right">
+      <button class="button button-icon button-clear search-btn-white" ng-click="goToHome()">
+      </button>
+        <button class="button button-icon button-clear cart-menu menu-btn"  menu-toggle="right">
+        </button>
+    </ion-nav-buttons>
+  <ion-content scroll="false" id="venuelist">
+      
+      <div class="yellow-search yellow-bg row">
+          <div class="search-input col">
+         <label class="item item-input">
+            <i class="icon text-yellow ion-search placeholder-icon"></i>
+            <input type="text" placeholder="Venue Name" ng-model="searchQuery">
+        </label>
+          </div>
+      </div>
+    <div class="venuelist" >
+        <ion-scroll >
+            <ion-list can-swipe="true"  swipe-direction="both">
+                <ion-item ng-repeat="item in venues | filter:{name:searchQuery}" ng-click="selectVenue(item)">
+                    <div class="rest-name dark-bg "><h4 class="text-primary b">{{item.name}}</h4></div>
+                    <div class="address blue-bg text-primary"><h5 class="text-primary">{{item.address}}</h5></div>
+                    <ion-option-button class="" ng-click="share(item)" side="right">
+                        Add
+                    </ion-option-button>
+                </ion-item>
+            </ion-list>
+        </ion-scroll>
+    </div>
+      <div class="left-bar"></div>
+      <div class="right-bar"></div>
+  </ion-content>
+</ion-view>

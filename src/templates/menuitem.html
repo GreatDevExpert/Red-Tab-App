@@ -1,0 +1,38 @@
+<ion-view view-title="">
+    
+      <ion-nav-buttons side="left">
+        <button ng-click="$ionicGoBack()" class="button button-icon button-clear ion-arrow-left-b menu-btn">
+        </button>
+      </ion-nav-buttons>
+    
+    <ion-nav-title>
+        <div class="center-el"> 
+            {{title}}
+        </div>
+     
+    </ion-nav-title>
+    
+    <ion-nav-buttons side="right">
+      <button class="button button-icon button-clear  search-btn-white" ng-click="goToHome()">
+      </button>
+        <button class="button button-icon button-clear cart-menu menu-btn"  menu-toggle="right">
+        </button>
+    </ion-nav-buttons>
+  <ion-content scroll="false" id="menuitem" class="dark-bg">
+      <div class="">
+        <div class="yellow-bg op-bg  text-dark item-name label h3 b">{{item.name}}</div>
+        <div class="blue-bg op-bg  price text-primary label h3 b">{{item.price | currency}}</div>
+         <div class="item-image">
+             <img ng-if="!item.image" src="img/no-item-image.jpg" />
+             <img ng-if="item.image" ng-src="{{item.image}}" />
+         </div>
+         <div class="item-desc dark-bg">
+             <p class="text-primary b">
+               <span class="text-yellow"> {{item.description}}</span> 
+             </p>
+        </div>  
+      </div>
+      <div class="left-bar"></div>
+      <div class="right-bar"></div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,50 @@
+<ion-view view-title="Payments" cache-view="false">
+    
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear nav-menu menu-btn" menu-toggle="left">
+        </button>
+      </ion-nav-buttons>
+    <ion-nav-title>
+        <div class="center-el">
+            <span class="home-logo dollor" ></span> <span class="screen-title"> Payment</span>
+        </div>
+    </ion-nav-title>
+    
+    <ion-nav-buttons side="right">
+      <button class="button button-icon button-clear search-btn-white" ng-click="goToHome()">
+      </button>
+        <button class="button button-icon button-clear cart-menu menu-btn"  menu-toggle="right">
+        </button>
+    </ion-nav-buttons>
+  <ion-content   id="payments">
+      <ion-list can-swipe="true" class="cards" swipe-direction="both">
+        <ion-item ng-repeat="card in cards" >
+            <div class="rest-name  "><span class="brand">{{card.brand}}</span>&nbsp;&nbsp;&nbsp;<span class="number"> **** {{card.last4}}</span></div>
+            <ion-option-button class="button-assertive" ng-click="delete(card)" side="right">
+                Delete
+            </ion-option-button>
+        </ion-item>
+    </ion-list>
+      
+      <button class="button button-block btn-blue text-primary" ng-click="showForm()">Add Credit Card</button>
+      
+      
+      <div class="left-bar"></div>
+      <div class="right-bar"></div>
+  </ion-content>
+    <div ng-show="showFormDiv" class="card-form">
+            <div class="inner-div">
+                <div class="">
+                    <h3>Add a card</h3>
+                    <div> <input type="number" placeholder="Card Number" ng-model="card.number"> </div>
+                    <div class="two-inp"> 
+                        <input type="number" placeholder="month"  ng-model="card.month">  
+                       <input type="number" placeholder="year"  ng-model="card.year"> 
+                    </div>
+                    <div> <input type="number" placeholder="CVC"  ng-model="card.cvc"> </div>
+                    <div> <a class="btn-blue btn button-block text-primary" ng-click="addCard(card)">Add Card</a> </div>
+                    <div> <a class="btn button-block close" ng-click="closeForm()">Close</a> </div>
+                </div>
+          </div>
+      </div>
+</ion-view>

@@ -1,0 +1,30 @@
+<ion-modal-view>
+  <ion-header-bar  class="dark-bg">
+    <h1 class="title text-primary">Sign Up</h1>
+  </ion-header-bar>
+  <ion-content id="login" class="dark-bg register">
+      <div class="logo-img">
+          <img src="img/logo-login.png" />
+      </div>
+    <form >
+      <div class="list dark-bg">
+        <label class="item item-input  dark-bg">
+          <span class="input-label text-yellow">Username</span>
+          <input type="text" class="text" ng-model="signupData.email" placeholder="username">
+        </label>
+        <label class="item item-input  dark-bg">
+          <span class="input-label text-yellow">Password</span>
+          <input type="password" class="text"  ng-model="signupData.password" placeholder="password">
+        </label>
+        <label class="item item-input  dark-bg">
+          <span class="input-label text-yellow">Confirm Password</span>
+          <input type="password" class="text"  ng-model="signupData.confirmPassword" placeholder="Confirm password">
+        </label>
+        <div class="login-btns">
+          <button class="button button-block btn-blue text-primary" ng-click="signUp()">Sign Up</button>
+          <a class="button button-block btn-blue text-primary"  ui-sref="login" >Login</a>
+        </div>
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>

@@ -1,0 +1,39 @@
+<ion-view view-title="">
+    
+      <ion-nav-buttons side="left">
+        <button ng-click="$ionicGoBack()" class="button button-icon button-clear ion-arrow-left-b menu-btn">
+        </button>
+      </ion-nav-buttons>
+    
+    <ion-nav-title>
+        <div class="center-el">
+            <span class="home-logo old" ></span> <span class="screen-title"> {{title}}</span>
+        </div>
+    </ion-nav-title>
+    
+    <ion-nav-buttons side="right">
+      <button class="button button-icon button-clear  search-btn-white" ng-click="goToHome()">
+      </button>
+        <button class="button button-icon button-clear cart-menu menu-btn"  menu-toggle="right">
+        </button>
+    </ion-nav-buttons>
+  <ion-content scroll="false" id="oldtab" class="gray-bg">
+      <div class="">
+        <div class="blue-bg op-bg text-primary subtotal label h4 b">Restaurant  <span>$40</span> </div>
+        <div class="gray6-bg text-dark tip label h5 b"><i class=" ion-plus"></i>Tip  <span>$10</span> </div>
+        <div class="green-bg text-primary total label h3 b">Total <i class=" ion-arrow-right-b"></i> <span>$64</span> </div>
+        <div class="yellow-bg op-bg date text-dark label h4 b">july 31, 20013 - 12:40 pm</div>
+                            
+      </div>
+      <ion-scroll>
+          <div class="tab-items">
+                <div class="tab-item dark-bg op-bg b text-yellow" ng-repeat="item in tab.tab_items">
+                    {{item.item_name}}
+                    <span  class="text-primary">${{item.item_price}}</span>
+                </div>
+            </div>
+      </ion-scroll>
+      <div class="left-bar"></div>
+      <div class="right-bar"></div>
+  </ion-content>
+</ion-view>

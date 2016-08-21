@@ -1,0 +1,71 @@
+<ion-side-menus enable-menu-with-back-views="false">
+  <ion-side-menu-content>
+    <ion-nav-bar class="dark-bg">
+
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear nav-menu  menu-btn" menu-toggle="left">
+        </button>
+      </ion-nav-buttons>
+      
+    <ion-nav-buttons side="right">
+        <button class="button button-icon button-clear cart-menu menu-btn"  menu-toggle="right">
+        </button>
+    </ion-nav-buttons>   
+    </ion-nav-bar>
+    <ion-nav-view name="menuContent"></ion-nav-view>
+  </ion-side-menu-content>
+
+  <ion-side-menu side="left">
+    <ion-header-bar class="dark-bg">
+      <h2 class="title text-primary text-left"> <i class=" ic-person"></i>{{sideMenuName}}</h2>
+    </ion-header-bar>
+    <ion-content>
+       <a class="menu-title btn-green" role="button" menu-close  ui-sref="app.venuelist">
+           <h1 class="text-primary">Radtab</h1>
+       </a>
+      <ion-list>
+        <ion-item menu-close ui-sref="app.history" class="h3">
+           <i class=" ic-check"></i>History
+        </ion-item>
+        <ion-item menu-close href="#/app/payments" class="h3">
+           <i class=" ic-dollor"></i>Payments
+        </ion-item>
+        <ion-item menu-close href="#/app/home" class="h3">
+           <i class=" ic-setting"></i>Settings
+        </ion-item>
+        <ion-item menu-close ng-click="logout()" class="h3">
+           <a class="item-content"><i class=" ic-logout"></i>Logout</a>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>
+  
+  <ion-side-menu side="right">
+    <ion-header-bar class="dark-bg">
+      <h2 class="cart-menu-title text-primary ">Radtab</h2>
+    </ion-header-bar>
+    <ion-content id="cart-menu" class="gray-bg" scroll="false">
+        <div ng-if="tab.is_open == 1"> 
+            <div class="blue-bg op-bg text-primary subtotal label h4 b">Subtotal  <span>{{tab.sub_total | currency}}</span> </div>
+            <div class="yellow-bg op-bg tax text-dark label h4 b"><i class=" ion-plus"></i>Tax  <span>{{tab.tax | currency}}</span> </div>
+            <div class="tip-buttons">
+                <a ng-class="isTipActive(10)?'active':''" class="tip-btn btn-gray text-primary" ng-click="tip(10)">10%</a>
+                <a ng-class="isTipActive(15)?'active':''"  class="tip-btn  btn-gray text-primary" ng-click="tip(15)">15%</a>
+                <a ng-class="isTipActive(20)?'active':''"  class="tip-btn  btn-gray text-primary" ng-click="tip(20)">20%</a>
+                <a ng-class="isTipActive(1)?'active':''" class="tip-btn  btn-gray text-primary" ng-click="tip(1)">+$1</a>
+            </div>
+            <div class="gray6-bg text-dark tip label h4 b"><i class=" ion-plus"></i>Tip  <span>{{tab.tip | currency}}</span> </div>
+            <div class=" text-dark processing label h4 b"><i class=" ion-plus"></i>Processing  <span>{{tab.processing | currency}}</span> </div>
+            <div class="green-bg text-primary total label h3 b">Total <i class=" ion-arrow-right-b"></i> <span>{{tab.total | currency}}</span> </div>
+            <div class="tab-items">
+                <div class="tab-item dark-bg op-bg b text-yellow" ng-repeat="item in tab.tab_items">
+                    {{item.item_name}}
+                    <span class="text-primary">{{item.item_price | currency}}</span>
+                </div>
+            </div>
+        </div>
+        <a class="pay-btn btn-green "><span class="h1 text-primary">
+      <img  src="img/icons/logo.png"> Pay</span></a>
+    </ion-content>
+  </ion-side-menu>
+</ion-side-menus>

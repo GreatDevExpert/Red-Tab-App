@@ -1,0 +1,33 @@
+<ion-view view-title="" cache-view="false">
+    
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear nav-menu menu-btn" menu-toggle="left">
+        </button>
+      </ion-nav-buttons>
+      <ion-nav-title>
+        <div class="center-el">
+            <span class="home-logo yellow" ></span>
+        </div>
+    </ion-nav-title>
+    
+    <ion-nav-buttons side="right">
+      <button class="button button-icon button-clear search-btn" ng-click="goToHome()">
+      </button>
+        <button class="button button-icon button-clear cart-menu menu-btn">
+        </button>
+    </ion-nav-buttons>
+  <ion-content scroll="false" id="venue-selected">
+      
+      <div id="venue-map" class="map" ui-sref="app.home">
+       
+      </div>
+      <div class="bottom-div">
+          <div class="venue-name blue-bg h3">{{location.name}}</div>
+          <div class="venue-address dark-bg h2">{{location.address | stripZip }}</div>
+          <a class="yellow-bg button text-primary h1" ng-click="goToMenu(location)">Menu</a>
+          <a class="green-bg button text-primary h1" ng-click="radTab(location)">Radtab</a>
+      </div>
+      <div class="left-bar"></div>
+      <div class="right-bar"></div>
+  </ion-content>
+</ion-view>

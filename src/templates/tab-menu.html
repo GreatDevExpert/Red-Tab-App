@@ -1,0 +1,56 @@
+<ion-view view-title="{{title}}" cache-view="false">
+    
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear nav-menu menu-btn" menu-toggle="left">
+        </button>
+      </ion-nav-buttons>
+    
+    <ion-nav-buttons side="right">
+      <button class="button button-icon button-clear  search-btn-white" ng-click="goToHome()">
+      </button>
+        <button class="button button-icon button-clear cart-menu menu-btn">
+        </button>
+    </ion-nav-buttons>
+  <ion-content scroll="false" id="tab-menu">
+      <ion-scroll direction="x"  class="social">
+        <div class="yellow-bg social-icons">
+            <a  ng-if="location.phone" href="tel:{{location.phone}}" ><img src="img/icons/ic_black_phone.png"/></a>
+            <a ng-if="location.social.yelp" href="{{location.social.yelp}}" target="_blank"><img src="img/icons/ic_black_yelp.png"/></a>
+            <a ng-if="location.social.facebook" href="{{location.social.facebook}}" target="_blank"><img src="img/icons/ic_black_fb.png"/></a>
+            <a ng-if="location.social.twitter"  href="{{location.social.twitter}}" target="_blank"><img src="img/icons/ic_black_tw.png"/></a>
+            <a ng-if="location.social.instagram"  href="{{location.social.instagram}}" target="_blank"><img src="img/icons/ic_black_insta.png"/></a>
+            <a ng-if="location.social.phone"  ><img src="img/icons/ic_black_phone.png"/></a>
+        </div>
+      </ion-scroll>
+      <ion-scroll>
+        <ion-list>
+            <div ng-repeat="category in categories" class="accordian-header">
+            <ion-item class="item-stable"
+                        ng-click="toggleGroup(category)"
+                        ng-class="{active: isGroupShown(category)}">
+                <i class="icon" ng-class="isGroupShown(category) ? 'ion-arrow-down-b' : 'ion-arrow-right-b'"></i>
+                &nbsp;
+                {{category.name}}
+            </ion-item>
+            <div ng-show="isGroupShown(category)">
+                <ion-item class="item-accordion"
+                            ng-repeat="item in  menuitems"
+                            ui-sref="app.menuitem({item:item,location:location})">
+                    <div class="dark-bg text-yellow item-name-price">
+                        <span class="item-name">{{item.name}}</span>
+                        <span class="item-price">{{item.price | currency}}</span>
+                    </div>
+                    <div class="item-desc">
+                        <ion-scroll direction="x">
+                             {{item.description}} 
+                        </ion-scroll>
+                    </div>
+                </ion-item>
+            </div>
+            </div>
+        </ion-list>
+      </ion-scroll>
+      <div class="left-bar"></div>
+      <div class="right-bar"></div>
+  </ion-content>
+</ion-view>

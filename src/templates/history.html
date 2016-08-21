@@ -1,0 +1,33 @@
+<ion-view view-title="">
+    
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon-round menu-btn" menu-toggle="left">
+        </button>
+      </ion-nav-buttons>
+    <ion-nav-title>
+        <div class="center-el">
+            <span class="home-logo old" ></span> <span class="screen-title">History</span>
+        </div>
+    </ion-nav-title>
+    
+    <ion-nav-buttons side="right">
+      <button class="button button-icon button-clear search-btn-white" ng-click="goToHome()">
+      </button>
+        <button class="button button-icon button-clear cart-menu menu-btn"  menu-toggle="right">
+        </button>
+    </ion-nav-buttons>
+  <ion-content scroll="false" id="history" scroll="true">
+      
+      
+    <div class="history" >
+            <ion-list >
+                <ion-item ng-repeat="item in history" ng-click="oldTab(item.u_id)" >
+                    <div class="item-name dark-bg "><h4 class="text-primary">{{item.item_name}} <span>${{item.item_price}}.00</span></h4></div>
+                    <div class="datetime blue-bg text-primary"><h5 class="text-primary">{{item.item_date_time}}</h5></div>
+                </ion-item>
+            </ion-list>
+    </div>
+      <div class="left-bar"></div>
+      <div class="right-bar"></div>
+  </ion-content>
+</ion-view>
